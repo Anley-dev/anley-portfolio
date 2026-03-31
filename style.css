@@ -10,13 +10,31 @@ body {
   font-size: 14px;
   margin-bottom: 25px;
 }
+.nav {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.nav a {
+  padding: 6px 12px;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+  text-decoration: none;
+}
 html {
   scroll-behavior: smooth;
 }
 .container {
   max-width: 700px;
   margin: auto;
-  padding: 20px;
+  padding: 70px 20px 20px 20px
 }
 h1 {
   text-align: center;
