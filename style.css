@@ -104,6 +104,8 @@ h2 { margin-top: 60px; margin-bottom: 20px; font-size: 22px; color: #fff; positi
   -webkit-mask-composite: xor;
   opacity: 0;
   transition: 0.3s;
+  
+  pointer-events: none; 
 }
 
 .project:hover::before { opacity: 1; }
@@ -120,6 +122,8 @@ h2 { margin-top: 60px; margin-bottom: 20px; font-size: 22px; color: #fff; positi
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+  position: relative;
+  z-index: 10
 }
 
 .btns a.secondary {
