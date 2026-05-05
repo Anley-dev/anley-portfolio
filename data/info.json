@@ -1,0 +1,15 @@
+{
+  "name": "Anley Belay",
+  "university": "Wachemo University (4th Year)",
+  "skills": ["AI Engineering", "Frontend Development", "Termux", "Python", "JavaScript"],
+  "stats": {
+    "certificates": 42,
+    "top_certs": ["Ethical AI", "Prompt Engineering", "Intermediate SQL", "fondi Inc. Internship"]
+  },
+  "socials": {
+    "telegram": "https://t.me/TechWisehub",
+    "facebook": "https://www.facebook.com/profile.php?id=61579076520708",
+    "linkedin": "https://www.linkedin.com/in/anleybelay?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+  }
+}
+
