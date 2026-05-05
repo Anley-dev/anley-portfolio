@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // 2. Send the message to your Vercel API
-                const response = await fetch('/api/chat', {
+                const response = await fetch('/api/chat.js', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: query })
