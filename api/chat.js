@@ -7,10 +7,10 @@ module.exports = async (req, res) => {
 
   try {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
-    
-    // Use the most stable model name for the current SDK version
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+    // Use the most stable model name for the current SDK version
+
+const model = genAI.getGenerativeModel({ model: "models/gemini-1.5-flash" });
     const { message } = req.body;
     const prompt = `You are Anley's Portfolio AI. Anley is a 4th-year student at Wachemo University with 42+ certificates. User says: ${message}`;
 
