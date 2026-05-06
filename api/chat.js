@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     }
 
     const model = genAI.getGenerativeModel({
-      model: "models/gemini-1.5-pro"
+      model: "models/gemini-1.0-pro"
     });
 
     const result = await model.generateContent({
