@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
 
     // Let the SDK choose the correct API version
     const model = genAI.getGenerativeModel({
