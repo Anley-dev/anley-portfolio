@@ -8,34 +8,36 @@ module.exports = async (req, res) => {
   try {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
 
-    // Let the SDK choose the correct API version
-    const models = await genAI.listModels();
-console.log(models);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash"
+    });
+
     const { message } = req.body;
 
     if (!message) {
-      return res.status(400).json({ reply: "Message is required" });
+      return res.status(400).json({ reply: "Message required" });
     }
 
     const result = await model.generateContent({
       contents: [
         {
           role: "user",
-          parts: [{ text: message }],
-        },
-      ],
+          parts: [{ text: message }]
+        }
+      ]
     });
 
     const response = result.response;
-    const text = response.text();
 
-    return res.status(200).json({ reply: text });
+    return res.status(200).json({
+      reply: response.text()
+    });
 
   } catch (error) {
-    console.error("Full error:", error);
+    console.error(error);
 
     return res.status(500).json({
-      reply: "Error: " + (error.message || "Unknown error"),
+      reply: error.message
     });
   }
 };
