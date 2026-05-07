@@ -3,7 +3,8 @@ module.exports = async (req, res) => {
   const apiKey = process.env.GEMINI_KEY;
 
   // The definitive stable URL
-  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.0-pro:generateContent?key=${apiKey}`;
+  // We go back to v1beta, but we use the "latest" tag which is the most reliable
+const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
   try {
     const response = await fetch(url, {
