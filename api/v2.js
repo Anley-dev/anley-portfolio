@@ -2,32 +2,38 @@ module.exports = async (req, res) => {
   const { message } = req.body;
   const apiKey = process.env.GEMINI_KEY;
 
-  // FIXED MODEL NAME: gemini-1.5-flash-latest
-  // On v1beta, we must use 'gemini-1.5-flash' (remove the '-latest')
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  // Attempt with the most universal name
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
 
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [{
-          parts: [{ text: message || "Hello" }]
-        }]
+        contents: [{ parts: [{ text: message || "Hi" }] }]
       })
     });
 
     const data = await response.json();
 
     if (data.error) {
-      return res.status(200).json({ reply: "Google Error: " + data.error.message });
+      // If it fails, we ask Google: "What models CAN I use?"
+      const listUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
+      const listRes = await fetch(listUrl);
+      const listData = await listRes.json();
+      
+      const available = listData.models?.map(m => m.name.split('/').pop()).join(', ') || "None";
+      
+      return res.status(200).json({ 
+        reply: `Error: ${data.error.message}. Available models for your key: ${available}` 
+      });
     }
 
     const aiReply = data.candidates[0].content.parts[0].text;
     res.status(200).json({ reply: aiReply });
 
   } catch (error) {
-    res.status(200).json({ reply: "Fetch Error: " + error.message });
+    res.status(200).json({ reply: "Connection Error: " + error.message });
   }
 };
 
