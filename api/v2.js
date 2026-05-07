@@ -3,7 +3,8 @@ module.exports = async (req, res) => {
   const apiKey = process.env.GEMINI_KEY;
 
   // FIXED MODEL NAME: gemini-1.5-flash-latest
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+  // On v1beta, we must use 'gemini-1.5-flash' (remove the '-latest')
+const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
   try {
     const response = await fetch(url, {
