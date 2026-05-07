@@ -2,8 +2,8 @@ module.exports = async (req, res) => {
   const { message } = req.body;
   const apiKey = process.env.GEMINI_KEY;
 
-  // Attempt with the most universal name
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+  // This name comes directly from your successful ListModels call
+const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
   try {
     const response = await fetch(url, {
