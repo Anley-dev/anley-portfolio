@@ -2,30 +2,35 @@ module.exports = async (req, res) => {
   const { message } = req.body;
   const apiKey = process.env.GEMINI_KEY;
 
-  // FIXED URL: Removed the extra "models/" prefix
-  const url = `https://generativelanguage.googleapis.com/v1/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  // The definitive stable URL
+  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: `You are Anley's Portfolio AI. User: ${message}` }] }]
+        contents: [{
+          parts: [{ text: `You are Anley's Portfolio AI. Keep it short. User: ${message}` }]
+        }]
       })
     });
 
     const data = await response.json();
-    
-    // If it STILL says not found, we try one more model name variation
-    if (data.error) {
-        return res.status(200).json({ reply: "Final check: " + data.error.message });
+
+    // If Google sends an error, we read it properly now
+    if (!response.ok) {
+      return res.status(200).json({ 
+        reply: `Google API Error: ${data.error?.message || response.statusText}` 
+      });
     }
 
-    const aiReply = data.candidates[0].content.parts[0].text;
+    // Safely extract the text
+    const aiReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm thinking, but I have no words.";
     res.status(200).json({ reply: aiReply });
 
   } catch (error) {
-    res.status(200).json({ reply: "System error: " + error.message });
+    res.status(200).json({ reply: "Network Error: " + error.message });
   }
 };
 
