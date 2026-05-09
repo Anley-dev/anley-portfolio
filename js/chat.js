@@ -42,4 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// Function to show/hide the chat
+function toggleChat() {
+    const chatWindow = document.getElementById('chat-container');
+    const launcher = document.getElementById('chat-launcher');
+    
+    if (chatWindow.classList.contains('chat-hidden')) {
+        chatWindow.classList.remove('chat-hidden');
+        // Optional: change button text when open
+        launcher.innerHTML = '<span class="icon">❌</span> <span class="text">Close</span>';
+    } else {
+        chatWindow.classList.add('chat-hidden');
+        launcher.innerHTML = '<span class="icon">🤖</span> <span class="text">Chat with AI</span>';
+    }
+}
 

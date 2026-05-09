@@ -258,4 +258,42 @@ footer { text-align: center; margin-top: 80px; padding-bottom: 40px; color: #444
   .project-header { flex-direction: column; gap: 10px; }
   .nav { width: 90%; justify-content: center; }
 }
+/* Floating Launcher */
+#chat-launcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00ffff; /* Cyan to match your theme */
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+/* Chat Container Fixes */
+#chat-container {
+    position: fixed;
+    bottom: 85px; /* Sits exactly above the button */
+    right: 20px;
+    width: 350px;
+    max-width: 90vw; /* Responsive for mobile */
+    height: 450px;
+    z-index: 999;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* The Hidden Class */
+.chat-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px); /* Slide down effect */
+    pointer-events: none;
+}
 
