@@ -1,3 +1,18 @@
+// Function to show/hide the chat
+function toggleChat() {
+    const chatWindow = document.getElementById('ai-chat');
+    const launcher = document.getElementById('chat-launcher');
+    
+    // Check if it's currently hidden by looking at the style
+    if (chatWindow.classList.contains('chat-hidden')) {
+        chatWindow.classList.remove('chat-hidden');
+        launcher.innerHTML = '[ X ] CLOSE_AI';
+    } else {
+        chatWindow.classList.add('chat-hidden');
+        launcher.innerHTML = '> ANLEY_AI_ASSISTANT';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const chatDisplay = document.getElementById('chat-display');
@@ -42,18 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-// Function to show/hide the chat
-function toggleChat() {
-    const chatWindow = document.getElementById('chat-container');
-    const launcher = document.getElementById('chat-launcher');
-    
-    if (chatWindow.classList.contains('chat-hidden')) {
-        chatWindow.classList.remove('chat-hidden');
-        // Optional: change button text when open
-        launcher.innerHTML = '<span class="icon">❌</span> <span class="text">Close</span>';
-    } else {
-        chatWindow.classList.add('chat-hidden');
-        launcher.innerHTML = '<span class="icon">🤖</span> <span class="text">Chat with AI</span>';
-    }
-}
 
