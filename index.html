@@ -90,32 +90,64 @@
       </div>
     </div>
   </section>
-<!-- Support / Buy Me a Coffee Section -->
-<section id="support" style="margin-bottom: 40px; padding: 20px; border: 1px solid #00d2ff; border-radius: 8px; background: rgba(0, 0, 0, 0.6);">
-    <h2 style="color: #00d2ff; font-family: monospace;">> SUPPORT_THE_ENGINEER</h2>
-    <p style="font-size: 0.9rem; margin-bottom: 20px;">Help fuel more AI projects like the Sidama Translator.</p>
+<!-- Support Section: Manual Payment Workflow -->
+<section id="support-engineer" class="support-card">
+    <h2 class="mono-text">> SUPPORT_THE_ENGINEER</h2>
+    <p class="sub-text">Fueling NLP research and AI projects like the Sidama Translator.</p>
 
-    <!-- Step 1: Initial View -->
+    <!-- Initial View -->
     <div id="support-initial">
-        <button onclick="initiateOrder(25)" style="background: #00d2ff; color: #000; border: none; padding: 10px 20px; margin-right: 10px; cursor: pointer;">25 ETB</button>
-        <button onclick="initiateOrder(50)" style="background: transparent; color: #00d2ff; border: 1px solid #00d2ff; padding: 10px 20px; cursor: pointer;">50 ETB</button>
+        <div class="support-options">
+            <button onclick="initiateOrder(25)" class="support-btn primary">25 ETB</button>
+            <button onclick="initiateOrder(50)" class="support-btn secondary">50 ETB</button>
+            <button onclick="initiateOrder(100)" class="support-btn secondary">100 ETB</button>
+        </div>
     </div>
 
-    <!-- Step 2: Checkout View (Hidden by Default) -->
-    <div id="support-checkout" style="display: none; margin-top: 20px; font-family: monospace;">
-        <div style="border-left: 2px solid #00d2ff; padding-left: 15px;">
-            <p>ORDER_ID: <span id="order-id" style="color: #fff;">---</span></p>
-            <p>AMOUNT: <span id="order-amount" style="color: #fff;">---</span> ETB</p>
-            <p>TIMER: <span id="timer" style="color: #ff4b4b;">15:00</span></p>
+    <!-- Checkout View (Hidden by Default) -->
+    <div id="support-checkout" style="display: none;">
+        <div class="order-info-box">
+            <p>TRANSFER_EXACT_AMOUNT:</p>
+            <h3 class="highlight-text"><span id="order-amount">0.00</span> ETB</h3>
+            <p class="order-id-label">ORDER_ID: <span id="order-id">#---</span></p>
         </div>
-        
-        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-            <a href="tel:*127%23" class="ussd-btn" style="background: #00d2ff; color: #000; text-align: center; padding: 12px; text-decoration: none;">OPEN_TELEBIRR (*127#)</a>
-            <a href="tel:*889%23" class="ussd-btn" style="border: 1px solid #00d2ff; color: #00d2ff; text-align: center; padding: 12px; text-decoration: none;">OPEN_CBE (*889#)</a>
+
+        <div class="payment-grid">
+            <!-- Telebirr -->
+            <div class="payment-item">
+                <div class="item-header">
+                    <img src="assets/telebirr.png" alt="Telebirr" class="trust-logo">
+                    <span>Telebirr</span>
+                </div>
+                <div class="item-body">
+                    <span class="mono-val">0943355985</span>
+                    <button onclick="copyText('0943355985')" class="copy-small">COPY</button>
+                </div>
+                <a href="tel:*127%23" class="ussd-action tele-bg">OPEN_TELEBIRR (*127#)</a>
+            </div>
+
+            <!-- CBE -->
+            <div class="payment-item">
+                <div class="item-header">
+                    <img src="assets/cbe.png" alt="CBE" class="trust-logo">
+                    <span>CBE</span>
+                </div>
+                <div class="item-body">
+                    <span class="mono-val">1000429802467</span>
+                    <button onclick="copyText('1000429802467')" class="copy-small">COPY</button>
+                </div>
+                <a href="tel:*889%23" class="ussd-action cbe-bg">OPEN_CBE (*889#)</a>
+            </div>
         </div>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: #888;">* Transfer the exact amount. Send screenshot to @Anley_Belay on Telegram.</p>
+
+        <p class="timer-text">REMAINING_TIME: <span id="timer">15:00</span></p>
+        <p class="disclaimer">* Send screenshot & Order ID to <strong>@Anley_Belay</strong> on Telegram for confirmation.</p>
     </div>
 </section>
+
+<!-- Link the logic script -->
+<script src="js/support.js"></script>
+
 
   <section id="contact">
   <h2>Let's Connect</h2>
@@ -166,7 +198,6 @@
 </div>
 
 <script src="js/chat.js"></script>
-<script src="js/support.js"></script>
 
 </div>
 

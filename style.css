@@ -297,3 +297,53 @@ footer { text-align: center; margin-top: 80px; padding-bottom: 40px; color: #444
     pointer-events: none;
 }
 
+.support-card {
+    border: 1px solid #1a1a1a;
+    background: #050505;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+}
+
+.order-info-box {
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #222;
+    margin-bottom: 20px;
+}
+
+.payment-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.payment-item {
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.trust-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.ussd-action {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.tele-bg { background: #e6007e; color: #fff; }
+.cbe-bg { border: 1px solid #6f267a; color: #fff; background: #6f267a; }
+
+.timer-text { color: #ff4b4b; font-family: monospace; margin-top: 15px; }
+
