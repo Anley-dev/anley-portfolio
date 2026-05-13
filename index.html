@@ -95,14 +95,35 @@
     <h2 class="mono-text">> SUPPORT_THE_ENGINEER</h2>
     <p class="sub-text">Fueling NLP research and AI projects like the Sidama Translator.</p>
 
-    <!-- Initial View -->
-    <div id="support-initial">
-        <div class="support-options">
-            <button onclick="initiateOrder(25)" class="support-btn primary">25 ETB</button>
-            <button onclick="initiateOrder(50)" class="support-btn secondary">50 ETB</button>
-            <button onclick="initiateOrder(100)" class="support-btn secondary">100 ETB</button>
-        </div>
+   <!-- support-initial -->
+<div id="support-initial">
+    <div class="support-options">
+        <button onclick="initiateOrder(25)" class="support-btn">25 ETB</button>
+        <button onclick="initiateOrder(50)" class="support-btn">50 ETB</button>
+        <button onclick="showCustomInput()" class="support-btn secondary">Custom</button>
     </div>
+    
+    <!-- Hidden input that appears when 'Custom' is clicked -->
+    <div id="custom-amount-wrapper" style="display: none; margin-top: 15px;">
+        <input type="number" id="custom-val" placeholder="Enter amount (e.g. 1000)" 
+               style="background: #111; color: #00d2ff; border: 1px solid #333; padding: 10px; border-radius: 4px; width: 70%;">
+        <button onclick="initiateCustomOrder()" 
+                style="background: #00d2ff; color: #000; border: none; padding: 10px; border-radius: 4px; font-weight: bold;">GO</button>
+    </div>
+</div>
+<!-- Binance Section for International Support -->
+<div class="payment-item" style="border: 1px solid #f3ba2f; background: rgba(243, 186, 47, 0.05);">
+    <div class="item-header">
+        <div style="width: 32px; height: 32px; background: #f3ba2f; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: black; font-size: 10px;">B</div>
+        <span style="color: #f3ba2f; font-weight: bold;">Binance Pay</span>
+    </div>
+    <div class="item-body" style="margin-top: 10px; display: flex; justify-content: space-between;">
+        <span class="mono-val" id="binance-id" style="color: #fff;">[YOUR_BINANCE_PAY_ID]</span>
+        <button onclick="copyText('[YOUR_BINANCE_PAY_ID]')" class="copy-small">COPY</button>
+    </div>
+    <p style="font-size: 0.75rem; color: #888; margin-top: 10px;">Ideal for international supporters and crypto users.</p>
+</div>
+
 
     <!-- Checkout View (Hidden by Default) -->
     <div id="support-checkout" style="display: none;">
